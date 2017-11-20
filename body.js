@@ -45,6 +45,7 @@ module.exports = {
             case "reserver": return this.getBody_Reserver(level);
 			case "reserver_at": return this.getBody_Reserver_AT(level);
 
+            case "upgrader": return this.getBody_Upgrader(level);
             case "worker": return this.getBody_Worker(level);
 			case "worker_at": return this.getBody_Worker_AT(level);            
             case "courier": return this.getBody_Carrier(level);
@@ -462,6 +463,57 @@ module.exports = {
                         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
 						MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
 						MOVE, MOVE, MOVE, MOVE, MOVE];            
+        }
+	},
+
+    getBody_Upgrader: function(level) {
+        switch (level) {
+            case 1:
+                return [ // 300 energy, 1x WORK, 2x CARRY, 2x MOVE
+                        WORK,
+                        CARRY, CARRY,
+                        MOVE, MOVE];
+            case 2:
+                return [ // 500 energy, 2x WORK, 2x CARRY, 4x MOVE
+                        WORK, WORK,
+                        CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE];
+            case 3:
+                return [ // 700 energy, 3x WORK, 4x CARRY, 4x MOVE
+                        WORK, WORK, WORK,
+                        CARRY, CARRY, CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE,];
+            case 4:
+                return [ // 1100 energy, 5x WORK, 6x CARRY, 6x MOVE
+                        WORK, WORK, WORK, WORK, WORK,
+                        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+            case 5:
+                return [ // 1600 energy, 8x WORK, 8x CARRY, 8x MOVE
+                        WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK,
+                        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+            case 6:
+                return [ // 2000 energy, 10x WORK, 10x CARRY, 10x MOVE
+                        WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK,
+                        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+            case 7:
+                return [ // 3000 energy, 15x WORK, 13x CARRY, 17x MOVE
+                        WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK,
+                        WORK, WORK, WORK, WORK, WORK,
+                        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+                        CARRY, CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+            case 8:
+                return [ // 3500 energy, 20x WORK, 13x CARRY, 17 MOVE
+                        WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK,
+                        WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK, WORK,
+                        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+                        CARRY, CARRY, CARRY,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+                        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
         }
 	},
 
