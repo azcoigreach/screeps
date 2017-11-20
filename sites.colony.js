@@ -232,6 +232,15 @@ module.exports = {
 					body: _.get(popTarget, ["worker", "body"], "worker"),
 					name: null, args: {role: "worker", room: rmColony} });
 		} 
+
+		if (_.get(popActual, "upgrader", 0) < _.get(popTarget, ["upgrader", "amount"], 0)) {
+			Memory["hive"]["spawn_requests"].push({ room: rmColony, listRooms: listSpawnRooms, 
+				priority: Math.lerpSpawnPriority(23, 25, _.get(popActual, "upgrader", 0), _.get(popTarget, ["upgrader", "amount"], 0)),
+				level: _.get(popTarget, ["upgrader", "level"], 1),
+				scale: _.get(popTarget, ["upgrader", "scale"], true),
+				body: _.get(popTarget, ["upgrader", "body"], "upgrader"),
+				name: null, args: {role: "upgrader", room: rmColony} });
+		}	
 	},
 
 
