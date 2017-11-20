@@ -252,6 +252,8 @@ module.exports = {
 
 			if (creep.memory.role == "worker") {
 				Roles.Worker(creep);
+			} else if (creep.memory.role == "upgrader") {
+				Roles.Upgrader(creep);
 			} else if (creep.memory.role == "soldier") {
 				Roles.Soldier(creep, false, true);
 			} else if (creep.memory.role == "healer") {
