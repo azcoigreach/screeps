@@ -132,7 +132,7 @@ module.exports = {
 				if (this.goToRoom(creep, creep.memory.room, false))
 					return;
 
-				creep.memory.task = creep.memory.task || creep.getTask_Upgrade(true);
+				creep.memory.task = creep.memory.task || creep.getTask_Upgrade(false);
 				creep.memory.task = creep.memory.task || creep.getTask_Wait(10);
 
 				creep.runTask(creep);
