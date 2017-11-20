@@ -11,21 +11,31 @@ Standalone: {
 	1: {	worker:   {level: 1, amount: 5} },
 	2: { 	worker:   {level: 2, amount: 5} },
 	3: { 	worker:   {level: 3, amount: 6} },
-	4: {    worker:   {level: 4, amount: 6} },
-	5: {    worker:   {level: 4, amount: 6} },
-	6: {    worker:   {level: 4, amount: 6} },
-	7: {    worker:   {level: 7, amount: 5} },
-	8: {	worker:   {level: 7, amount: 4} } },
+	4: {    worker:   {level: 4, amount: 6} ,
+			upgrader: {level: 4, amount: 2} },
+	5: {    worker:   {level: 4, amount: 6} ,
+			upgrader: {level: 5, amount: 2} },
+	6: {    worker:   {level: 4, amount: 6} ,
+			upgrader: {level: 5, amount: 2} },
+	7: {    worker:   {level: 7, amount: 5} ,
+			upgrader: {level: 6, amount: 2} },
+	8: {	worker:   {level: 7, amount: 4} ,
+			upgrader: {level: 6, amount: 2} } },
 
 Assisted: {
 	1: {	worker:   {level: 3, amount: 4} },
 	2: { 	worker:   {level: 3, amount: 4} },
 	3: { 	worker:   {level: 4, amount: 6} },
-	4: {    worker:   {level: 5, amount: 6} },
-	5: {    worker:   {level: 6, amount: 6} },
-	6: {    worker:   {level: 6, amount: 6} },
-	7: {    worker:   {level: 7, amount: 5} },
-	8: {	worker:   {level: 7, amount: 4} } }
+	4: {    worker:   {level: 4, amount: 6} ,
+			upgrader: {level: 5, amount: 2} },
+	5: {    worker:   {level: 4, amount: 6} ,
+			upgrader: {level: 6, amount: 2} },
+	6: {    worker:   {level: 4, amount: 6} ,
+			upgrader: {level: 7, amount: 2} },
+	7: {    worker:   {level: 7, amount: 5} ,
+			upgrader: {level: 7, amount: 2} },
+	8: {	worker:   {level: 7, amount: 4} ,
+			upgrader: {level: 6, amount: 2} } }	
 };
 
 

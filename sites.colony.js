@@ -131,6 +131,7 @@ module.exports = {
 				case "soldier": popActual["soldier"] = _.get(popActual, "soldier", 0) + 1; break;
 				case "healer": popActual["healer"] = _.get(popActual, "healer", 0) + 1; break;
 				case "worker": popActual["worker"] = _.get(popActual, "worker", 0) + 1; break;
+				case "upgrader": popActual["upgrader"] = _.get(popActual, "upgrader", 0) +1; break;
 			}
 		});
 		
@@ -176,6 +177,24 @@ module.exports = {
 					(storage.store["energy"] / Math.max(1, Game["rooms"][rmColony].getLowEnergy())) * 0.75));
 			}
 		}
+
+		// Adjust upgrader amounts based on is_safe, energy_level
+		if (!is_safe) {
+			_.set(popTarget, ["upgrader", "level"], Math.max(1, Math.round(_.get(popTarget, ["upgrader", "level"]) * 0.5)))
+		} else if (is_safe) {
+			if (energy_level == CRITICAL) {
+				_.set(popTarget, ["upgrader", "amount"], Math.max(1, Math.round(_.get(popTarget, ["upgrader", "amount"]) * 0.33)))
+				_.set(popTarget, ["upgrader", "level"], Math.max(1, Math.round(_.get(popTarget, ["upgrader", "level"]) * 0.33)))
+			} else if (energy_level == LOW) {
+				_.set(popTarget, ["upgrader", "amount"], Math.max(1, Math.round(_.get(popTarget, ["upgrader", "amount"]) * 0.5)))
+				_.set(popTarget, ["upgrader", "level"], Math.max(1, Math.round(_.get(popTarget, ["upgrader", "level"]) * 0.5)))
+			} else if (energy_level == EXCESS && room_level < 8) {
+				let storage = _.get(Game, ["rooms", rmColony, "storage"]);
+				_.set(popTarget, ["upgrader", "amount"], Math.round(_.get(popTarget, ["upgrader", "amount"]) * 
+					(storage.store["energy"] / Math.max(1, Game["rooms"][rmColony].getLowEnergy())) * 0.75));
+			}
+		}
+
 		
 		// Tally population levels for level scaling and statistics
 		Hive.populationTally(rmColony, 

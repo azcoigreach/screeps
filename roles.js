@@ -94,6 +94,60 @@ module.exports = {
 		}
 	},
 
+	// Adding Upgrader
+
+	Upgrader: function(creep, isSafe) {
+        let hostile = isSafe ? null
+			: _.head(creep.pos.findInRange(FIND_HOSTILE_CREEPS, 6, { filter:
+				c => { return c.isHostile(); }}));
+
+		if (hostile == null) {
+			if (creep.memory.state == "refueling") {
+				if (_.sum(creep.carry) == creep.carryCapacity) {
+					creep.memory.state = "working";
+					return;
+				}
+
+				creep.memory.task = creep.memory.task || creep.getTask_Boost();
+
+				if (!creep.memory.task && this.goToRoom(creep, creep.memory.room, true))
+					return;
+				
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Link();
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Storage("energy", 
+				_.get(Memory, ["rooms", creep.room.name, "survey", "downgrade_critical"], false));
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Container("energy", 
+				_.get(Memory, ["rooms", creep.room.name, "survey", "downgrade_critical"], false));
+				creep.memory.task = creep.memory.task || creep.getTask_Wait(10);
+
+				creep.runTask(creep);
+				return;
+
+			} else if (creep.memory.state == "working") {
+				if (creep.carry["energy"] == 0) {
+					creep.memory.state = "refueling";
+					return;
+				}
+
+				if (this.goToRoom(creep, creep.memory.room, false))
+					return;
+
+				creep.memory.task = creep.memory.task || creep.getTask_Upgrade(true);
+				creep.memory.task = creep.memory.task || creep.getTask_Wait(10);
+
+				creep.runTask(creep);
+				return;
+
+			} else {
+				creep.memory.state = "refueling";
+				return;
+			}
+		} else if (hostile != null) {			
+			creep.moveFrom(creep, hostile);
+			return;
+		}
+	},
+
     Mining: function(creep, isSafe) {
 		let hostile = isSafe ? null
 			: _.head(creep.pos.findInRange(FIND_HOSTILE_CREEPS, 6, { filter:
