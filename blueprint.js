@@ -88,6 +88,8 @@ let Blueprint = {
 			case "compact_horizontal":
 				layout = Blueprint__Compact_Horizontal;
 				break;
+			case "horizontal_nowalls"
+				layout = Blueprint__Horizontal_nowalls;
 		}
 
 		// Block areas around sources, minerals, and the room controller; prevents cycle of building and destroying.		
