@@ -88,7 +88,7 @@ let Blueprint = {
 			case "compact_horizontal":
 				layout = Blueprint__Compact_Horizontal;
 				break;
-			case "horizontal_nowalls"
+			case "horizontal_nowalls":
 				layout = Blueprint__Horizontal_nowalls;
 		}
 
