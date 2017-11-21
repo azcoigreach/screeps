@@ -528,7 +528,7 @@ module.exports = {
 			return `<font color=\"#D3FFA3\">[Console]</font> Construction sites placed in ${rmName} for road from (${startX}, ${startY}) to (${endX}, ${endY}).`;
 		};
 
-		help_path.push("path.exit_tile(exit_pos)");
+		help_path.push("path.exit_tile(new RoomPosition(exitX, exitY, exitRoom))");
 		
 		path.exit_tile = function(exit_pos) {
 			// Specifies preferred exit tiles to assist inter-room pathfinding
