@@ -112,7 +112,7 @@ R1: {
 	6: {	burrower:  {level: 5, amount: 1, body: "burrower_at"},
 			carrier:   {level: 5, amount: 2, body: "carrier_at"},
 			multirole: {level: 5, amount: 1, body: "worker_at"},
-			reserver:  {level: 6, amount: 2, body: "reserver_at"} },
+			reserver:  {level: 6, amount: 1, body: "reserver_at"} },
 	7: {	burrower:  {level: 5, amount: 1, body: "burrower_at"},
 			carrier:   {level: 6, amount: 2, body: "carrier_at"},
 			multirole: {level: 5, amount: 1, body: "worker_at"},
