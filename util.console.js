@@ -444,7 +444,7 @@ module.exports = {
 			return `<font color=\"#D3FFA3\">[Console]</font> Wall/rampart hitpoint target set for all rooms.`;
 		};
 
-		help_empire.push("empire.set_camp(room_pos)")
+		help_empire.push("empire.set_camp(new RoomPosition(campX, campY, campRoom))")
 		empire.set_camp = function(room_pos) {
 			_.set(Memory, ["rooms", room_pos.roomName, "camp"], room_pos);
 			return `<font color=\"#D3FFA3\">[Console]</font> Defensive camp set for room ${room_pos.roomName}.`;
@@ -554,7 +554,7 @@ module.exports = {
 			return `<font color=\"#D3FFA3\">[Console]</font> Preferred exit tile position added to Memory.hive.paths.exits.rooms.${room_name}`;
 		};
 
-		help_path.push("path.prefer(prefer_pos)");
+		help_path.push("path.prefer(new RoomPosition(preferX, preferY, preferRoom))");
 		
 		path.prefer = function(prefer_pos) {
 			// Lowers the cost of specific tiles (e.g. swamp), so creeps take shorter paths through swamps rather than ERR_NO_PATH
@@ -564,7 +564,7 @@ module.exports = {
 			return `<font color=\"#D3FFA3\">[Console]</font> Preference position added to Memory.hive.paths.prefer.rooms.${prefer_pos.roomName}`;
 		};
 
-		help_path.push("path.avoid(avoid_pos)");
+		help_path.push("path.avoid(new RoomPosition(avoidX, avoidY, avoidRoom))");
 		
 		path.avoid = function(avoid_pos) {
 			if (_.get(Memory, ["hive", "paths", "avoid", "rooms", avoid_pos.roomName]) == null)
