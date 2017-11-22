@@ -107,6 +107,7 @@ module.exports = {
 			if (creep.memory.state == "refueling") {
 				if (_.sum(creep.carry) == creep.carryCapacity) {
 					creep.memory.state = "working";
+					delete creep.memory.task;
 					return;
 				}
 
@@ -128,6 +129,7 @@ module.exports = {
 			} else if (creep.memory.state == "working") {
 				if (creep.carry["energy"] == 0) {
 					creep.memory.state = "refueling";
+					delete creep.memory.task;
 					return;
 				}
 
