@@ -621,7 +621,7 @@ module.exports = {
 
 		help_pause.push("pause.mining_operation(rmHarvest)")		
 		pause.mining_operation = function(rmHarvest) {
-			_.set(Memory, ["sites", "mining", rmHarvest, "pause", true]);
+			_.set(Memory, ["sites", "mining", rmHarvest, "pause"], true);
 			return `<font color=\"#D3FFA3\">[Console]</font> Pausing mining operation in ${rmHarvest} - delete sites.mining.${rmHarvest}.pause to resume.`;
 		};
 		
