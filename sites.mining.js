@@ -207,7 +207,7 @@ module.exports = {
 				name: null, args: {role: "multirole", room: rmHarvest, colony: rmColony} });
         }
 		
-		let pause_mining = _.get(Memory, ["sites", "mining", rmHarvest, "pause", false]);
+		let pause_mining = _.get(Memory, ["sites", "mining", rmHarvest, "pause"], false);
 		if (is_safe && !pause_mining) {			
 			if (_.get(popActual, "burrower", 0) < _.get(popTarget, ["burrower", "amount"], 0)) {
 				Memory["hive"]["spawn_requests"].push({ room: rmColony, listRooms: listSpawnRooms, 
