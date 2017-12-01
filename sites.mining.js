@@ -207,7 +207,8 @@ module.exports = {
 				name: null, args: {role: "multirole", room: rmHarvest, colony: rmColony} });
         }
 		
-		if (is_safe) {			
+		let pause_mining = _.get(Memory, ["sites", "mining", rmHarvest, "pause", false]);
+		if (is_safe && !pause_mining) {			
 			if (_.get(popActual, "burrower", 0) < _.get(popTarget, ["burrower", "amount"], 0)) {
 				Memory["hive"]["spawn_requests"].push({ room: rmColony, listRooms: listSpawnRooms, 
 					priority: (rmColony == rmHarvest ? 12 : 15), 

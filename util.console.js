@@ -618,6 +618,12 @@ module.exports = {
 			_.set(Memory, ["hive", "pause", "extracting"], true);
 			return `<font color=\"#D3FFA3\">[Console]</font> Pausing mineral extraction- delete Memory.hive.pause.extracting to resume.`;
 		};
+
+		help_pause.push("pause.mining_operation(rmHarvest)")		
+		pause.mineral_extraction = function() {
+			_.set(Memory, ["sites", "mining", rmHarvest, "pause", true];
+			return `<font color=\"#D3FFA3\">[Console]</font> Pausing mining operation at ${rmHarvest} - delete sites.mining.${rmHarvest}.pause to resume.`;
+		};
 		
 		help_pause.push("pause.refill_bucket()")		
 		pause.refill_bucket = function() {
