@@ -400,7 +400,7 @@ Creep.prototype.getTask_Pickup = function getTask_Pickup (resource) {
 		let pile = _.head(_.sortBy(_.filter(dropped_resources, 
 			r => { return r.resourceType == "mineral"; }),
 			r => { return -r.amount; }));
-			console.log(dropped_resources)
+			
 
 		if (pile != null) {
 			return {	type: "pickup",
@@ -408,6 +408,7 @@ Creep.prototype.getTask_Pickup = function getTask_Pickup (resource) {
 						id: pile.id,
 						timer: 30,
 			};
+			console.log(pile.id);  //debug mineral pickup
 		}
 	}
 
