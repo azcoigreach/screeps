@@ -254,6 +254,7 @@ module.exports = {
 			if (!creep.memory.task && this.goToRoom(creep, creep.memory.room, true))
 				return;
 
+			creep.memory.task = creep.memory.task || creep.getTask_Pickup("mineral");
 			creep.memory.task = creep.memory.task || creep.getTask_Industry_Withdraw();
 			creep.memory.task = creep.memory.task || creep.getTask_Wait(10);
 
