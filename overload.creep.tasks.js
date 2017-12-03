@@ -408,7 +408,7 @@ Creep.prototype.getTask_Pickup = function getTask_Pickup (resource) {
 						id: pile.id,
 						timer: 30,
 			};
-			console.log(pile.id);  //debug mineral pickup
+			console.log(pile);  //debug mineral pickup
 		}
 	}
 
