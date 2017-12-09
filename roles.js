@@ -182,7 +182,8 @@ module.exports = {
 
 				} else if (creep.memory.role == "miner" || creep.memory.role == "carrier") {
 					creep.memory.task = creep.memory.task || creep.getTask_Pickup("energy");
-					creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Link();
+					creep.memory.task = creep.memory.task || creep.getTask_Pickup("mineral");
+					// creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Link();
 
 					let energy_level = _.get(Memory, ["rooms", creep.room.name, "survey", "energy_level"]);
 					if (energy_level == CRITICAL || energy_level == LOW) {	
@@ -195,7 +196,7 @@ module.exports = {
 					
 					if (creep.hasPart("work") > 0)
 						creep.memory.task = creep.memory.task || creep.getTask_Mine();
-					creep.memory.task = creep.memory.task || creep.getTask_Pickup("mineral");
+					
 					creep.memory.task = creep.memory.task || creep.getTask_Wait(10);
 				}
 
