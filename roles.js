@@ -117,13 +117,13 @@ module.exports = {
 					return;
 				
 				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Link();
-				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Container("energy", 
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Storage("energy", 
 				_.get(Memory, ["rooms", creep.room.name, "survey", "downgrade_critical"], true));
-				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Container("energy", 
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Storage("energy", 
 				_.get(Memory, ["rooms", creep.room.name, "survey", "downgrade_critical"], false));
-				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Storage("energy", 
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Container("energy", 
 				_.get(Memory, ["rooms", creep.room.name, "survey", "downgrade_critical"], true));
-				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Storage("energy", 
+				creep.memory.task = creep.memory.task || creep.getTask_Withdraw_Container("energy", 
 				_.get(Memory, ["rooms", creep.room.name, "survey", "downgrade_critical"], false));
 				creep.memory.task = creep.memory.task || creep.getTask_Wait(10);
 
