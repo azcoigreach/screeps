@@ -43,6 +43,9 @@ module.exports = {
                     
                     _.set(Memory, ["stats", "colonies", room.name, "population"], new Object());
 
+                    _.set(Memory, ["stats", "colonies", room.name, "energy", "energy_available"], room.energyAvailable);
+                    _.set(Memory, ["stats", "colonies", room.name, "energy", "energy_capacity"], room.energyCapacityAvailable);
+
                     let storage = _.get(Game, ["rooms", room.name, "storage"]);
                     let terminal = _.get(Game, ["rooms", room.name, "terminal"]);
                     _.set(Memory, ["stats", "colonies", room.name, "storage", "store"], _.get(storage, "store"));
