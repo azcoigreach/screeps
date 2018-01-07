@@ -51,7 +51,7 @@ S1: {
 	4: {    burrower:  {level: 3, amount: 1},
 			carrier:   {level: 3, amount: 2} },
 	5: {    burrower:  {level: 4, amount: 1},
-			carrier:   {level: 4, amount: 2} },
+			carrier:   {level: 5, amount: 2} },
 	6: {	burrower:  {level: 5, amount: 1},
 			carrier:   {level: 6, amount: 2},
 			extractor: {level: 6, amount: 2} },
